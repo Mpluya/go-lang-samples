@@ -39,7 +39,8 @@ func main() {
 }
 
 func get(accessTokenIn string) []byte {
-	facebookUserLikesURL := facebookGraphAPIMeEndpoint + "?fields=" + field + "&access_token=" + accessTokenIn
+	//facebookUserLikesURL := facebookGraphAPIMeEndpoint + "?fields=" + field + "&access_token=" + accessTokenIn
+	facebookUserLikesURL := fmt.Sprintf("%s?fields=%s&access_token=%s", facebookGraphAPIMeEndpoint, field, accessTokenIn)
 	resp, err := http.Get(facebookUserLikesURL)
 	if err != nil {
 		log.Fatal(err)
